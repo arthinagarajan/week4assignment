@@ -33,6 +33,6 @@ jobs:
     steps:
       # Checkout project source
       - uses: actions/checkout@v3
-      - run: semgrep --config=week4semgrep.yml requirements.txt
+      - run: pip3 install semgrep && semgrep --config=week4semgrep.yml requirements.txt
       
      
