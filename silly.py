@@ -1,6 +1,4 @@
-import importlib  
-opencv = importlib.import_module("opencv-python")
-
+import nocodb
 
 username = "silly_user"
 password = "WEAKPASSWORD"
