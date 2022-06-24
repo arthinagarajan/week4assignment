@@ -4,4 +4,4 @@ rules:
     message: eval() functions are unsafe
     languages: 
       - python
-    severity: WARNING
+    severity: ERROR
