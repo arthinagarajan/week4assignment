@@ -8,3 +8,4 @@ rules:
     message: this version of opencv-python is subject to an out-of-bounds write
     languages: 
       - python
+    severity: ERROR
