@@ -16,8 +16,6 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ "main" ]
-  schedule:
-    - cron: '25 17 * * 4'
   workflow_dispatch:
 
 permissions:
@@ -33,6 +31,7 @@ jobs:
     steps:
       # Checkout project source
       - uses: actions/checkout@v3
-      - run: pip3 install semgrep && semgrep --config=week4semgrep.yml .
+      - run: pip3 install semgrep && semgrep scan --config=week4semgrep.yml
+      
       
      
