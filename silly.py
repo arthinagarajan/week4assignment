@@ -1,4 +1,4 @@
-import opencv-python
+import opencv
 
 username = "silly_user"
 password = "WEAKPASSWORD"
