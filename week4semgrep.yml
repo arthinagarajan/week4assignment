@@ -1,11 +1,7 @@
 rules:
-  - id: vulnerable-opencv
-    patterns:
-      - r2c-internal-project-depends-on:
-        - namespace: pypi
-        - package: opencv-python
-        - version: "<=3.3.0.9"
-    message: this version of opencv-python is subject to an out-of-bounds write
+  - id: eval-function-calls
+    pattern: eval(...)
+    message: eval() functions are unsafe
     languages: 
       - python
-    severity: ERROR
+    severity: WARNING
