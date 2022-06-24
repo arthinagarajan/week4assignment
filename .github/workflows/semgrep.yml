@@ -1,0 +1,38 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow file requires a free account on Semgrep.dev to
+# manage rules, file ignores, notifications, and more.
+#
+# See https://semgrep.dev/docs
+
+name: Semgrep
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "main" ]
+  schedule:
+    - cron: '25 17 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  semgrep:
+    permissions:
+      contents: read # for actions/checkout to fetch code
+      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+    name: Search for vulnerable opencv dependency
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout project source
+      - uses: actions/checkout@v3
+      - run: pip3 install semgrep && semgrep --config=week4semgrep.yml requirements.txt
+      
+     
