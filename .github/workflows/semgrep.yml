@@ -28,7 +28,7 @@ jobs:
     permissions:
       contents: read # for actions/checkout to fetch code
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
-    name: Search for vulnerable opencv dependency
+    name: Search for eval() calls
     runs-on: ubuntu-latest
     steps:
       # Checkout project source
