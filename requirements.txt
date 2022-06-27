@@ -1,2 +1,2 @@
-nocodb<0.91.7
-numpy==1.23.0
+opencv-python==3.3.0.10
+numpy==1.19.5
