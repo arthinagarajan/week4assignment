@@ -23,15 +23,14 @@ permissions:
 
 jobs:
   semgrep:
-    permissions:
-      contents: read # for actions/checkout to fetch code
-      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
-    name: Search for eval() calls
+    name: Scan
     runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep
+    if: (github.actor != 'dependabot[bot]')
     steps:
       # Checkout project source
       - uses: actions/checkout@v3
-      - run: pip3 install semgrep && semgrep scan --config=week4semgrep.yml
-      
-      
-     
+      - run: semgrep ci
+        env: 
+          SEMGREP_RULES: week4semgrep.yml
